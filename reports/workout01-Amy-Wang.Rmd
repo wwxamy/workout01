@@ -22,22 +22,27 @@ The Golden State Warriors has been reported to be making the best mid-range shot
 #Data  
 How 
 ##Where are the playing shooting from and how effective are they
-![](~/Desktop/Stats 133/workout01/images/gsw-shot-charts.png)
+
 The graph shows the position of where the shots are being made and whether the shot was successful. It can be seen that there is definitely a significant amount of three-pointers attemps and the shots missed and made are approximately the same or more made, showing how skillful the players are.  
 ##How effective are the shots 
-```{r}
+```{r initialization}
 knitr::opts_knit$set(root.dir = '~/Desktop/Stats 133/workout01/data/')
+
+library(dplyr)
+```
+
+```{r}
 iguodala <- read.csv(file = "andre-iguodala.csv", sep = ",", stringsAsFactors = FALSE )
 green <- read.csv(file = "draymond-green.csv", sep = ",", stringsAsFactors = FALSE )
 durant <- read.csv(file = "kevin-durant.csv", sep = ",", stringsAsFactors = FALSE )
 thompson <- read.csv(file = "klay-thompson.csv", sep = ",", stringsAsFactors = FALSE )
 curry <- read.csv(file = "stephen-curry.csv", sep = ",", stringsAsFactors = FALSE )
 
-made <- c(nrow(filter(iguodala, shot_made_flag == "y")), 
-          nrow(filter(green, shot_made_flag == "y")),
-          nrow(filter(durant, shot_made_flag == "y")),
-          nrow(filter(thompson, shot_made_flag == "y")),
-          nrow(filter(curry, shot_made_flag == "y")))
+made <- c(nrow(filter(iguodala, iguodala$shot_made_flag == "y")), 
+          nrow(filter(green, green$shot_made_flag == "y")),
+          nrow(filter(durant, durant$shot_made_flag == "y")),
+          nrow(filter(thompson, thompson$shot_made_flag == "y")),
+          nrow(filter(curry, curry$shot_made_flag == "y")))
 
 total <-  c(nrow(iguodala),
             nrow(green),
