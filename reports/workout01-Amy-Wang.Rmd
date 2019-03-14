@@ -14,7 +14,7 @@ There has been many great player born from the NBA team Golden State Warriers. A
 ***  
 #Background  
 ##Team  
-The Golden State Warriors is American professional baseketball team. It is based in Oakland, California and competes in the Western Conference Pacific Division of the National Basketball Association (NBA). It was founded in 1946 in Philadephia, and relocated to San Francisco Bay Area in 1962. The Warriors has won championships in 1947 and 1956. 
+The Golden State Warriors is American professional baseketball team. It is based in Oakland, California and competes in the Western Conference Pacific Division of the National Basketball Association (NBA). It was founded in 1946 in Philadephia, and relocated to San Francisco Bay Area in 1962. The Warriors has won championships in 1947 and 1956.  
 ***  
 ##Shooting 
 The Golden State Warriors has been reported to be making the best mid-range shots in the league, with a playoff PPS of 0.93 for mid range compared to 0.78 for the whole league. Over the past 20 years, the GSW is the forth team to make more than half of their shots, and value more than any other team in the league considering the three pointers.   
@@ -22,7 +22,7 @@ The Golden State Warriors has been reported to be making the best mid-range shot
 #Data  
 How 
 ##Where are the playing shooting from and how effective are they
-
+![](~/Desktop/Stats 133/workout01/images/gsw-shot-charts.png)
 The graph shows the position of where the shots are being made and whether the shot was successful. It can be seen that there is definitely a significant amount of three-pointers attemps and the shots missed and made are approximately the same or more made, showing how skillful the players are.  
 ##How effective are the shots 
 ```{r initialization}
