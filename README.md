@@ -1,6 +1,6 @@
-#Workout 01  
+Workout 01  
 
-#Stats 133, Amy Wang  
+Stats 133, Amy Wang  
 
 The aim of the assignment is to:  
 1. Work with complex file structure and uploading files to GitHub  
