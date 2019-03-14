@@ -1,7 +1,7 @@
 #title: making shot charts
 #description: making charts for shot data 
-#input:
-#output:
+#input: csv files 
+#output: pdf/png
 
 setwd("~/Desktop/Stats 133/workout01/data/")
 
