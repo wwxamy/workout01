@@ -54,3 +54,13 @@ curry_shot_chart <- ggplot(data = curry) +
   ggtitle('Shot Chart: Draymond Green (2016 season)') + theme_minimal()
 
 curry_shot_chart
+
+alldata <- read.table(file ="shots-data.csv", sep = ",", stringsAsFactors = FALSE, header = TRUE)
+
+all_shot_chart <- ggplot(data = alldata) +
+  annotation_custom(court_image, -250, 250, -50, 420) +
+  geom_point(aes(x=x, y=y, color = shot_made_flag))+
+  ylim(-50, 420) + 
+  ggtitle('Shot Chart: Five players(2016 season)') + theme_minimal() + facet_wrap(~name)
+
+all_shot_chart
