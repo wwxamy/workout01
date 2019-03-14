@@ -1,31 +1,25 @@
----
-title: "workout01-Amy-Wang"
-output: github_document
----
+workout01-Amy-Wang
+================
 
-#Introduction  
-There has been many great player born from the NBA team Golden State Warriers. Andre Iguodala, Draymond Green, Kevin Durant, Kaly Thompson and Stephen Curry are five players that have made their names known to not just the GSW fans, but to NBA fans of the world. Each player's excellence can be attributed to their unique play styles. The type of shots made is an important aspect that can be analyzed. From the location the shot is being made to the type of shot, data presents to us how the five players make their shots. By investigating the position of shot, type of shot, timing of the shot and sucess rate of the shot, we will be able to analyze how each player play and understand their strengths and weaknesses better.   
-***  
-#Content  
-1. Background  
-2. Data and analysis  
-3. Discussion  
-4. References   
-***  
-#Background  
-##Team  
-The Golden State Warriors is American professional baseketball team. It is based in Oakland, California and competes in the Western Conference Pacific Division of the National Basketball Association (NBA). It was founded in 1946 in Philadephia, and relocated to San Francisco Bay Area in 1962. The Warriors has won championships in 1947 and 1956. 
-***  
-##Shooting 
-The Golden State Warriors has been reported to be making the best mid-range shots in the league, with a playoff PPS of 0.93 for mid range compared to 0.78 for the whole league. Over the past 20 years, the GSW is the forth team to make more than half of their shots, and value more than any other team in the league considering the three pointers.   
-***  
-#Data  
-How 
-##Where are the playing shooting from and how effective are they
-![](~/Desktop/Stats 133/workout01/images/gsw-shot-charts.png)
-The graph shows the position of where the shots are being made and whether the shot was successful. It can be seen that there is definitely a significant amount of three-pointers attemps and the shots missed and made are approximately the same or more made, showing how skillful the players are.  
-##How effective are the shots 
-```{r}
+Introduction
+============
+
+There has been many great player born from the NBA team Golden State Warriers. Andre Iguodala, Draymond Green, Kevin Durant, Kaly Thompson and Stephen Curry are five players that have made their names known to not just the GSW fans, but to NBA fans of the world. Each player's excellence can be attributed to their unique play styles. The type of shots made is an important aspect that can be analyzed. From the location the shot is being made to the type of shot, data presents to us how the five players make their shots. By investigating the position of shot, type of shot, timing of the shot and sucess rate of the shot, we will be able to analyze how each player play and understand their strengths and weaknesses better.
+*** \#Content
+1. Background
+2. Data and analysis
+3. Discussion
+4. References
+*** \#Background
+\#\#Team
+The Golden State Warriors is American professional baseketball team. It is based in Oakland, California and competes in the Western Conference Pacific Division of the National Basketball Association (NBA). It was founded in 1946 in Philadephia, and relocated to San Francisco Bay Area in 1962. The Warriors has won championships in 1947 and 1956. *** \#\#Shooting The Golden State Warriors has been reported to be making the best mid-range shots in the league, with a playoff PPS of 0.93 for mid range compared to 0.78 for the whole league. Over the past 20 years, the GSW is the forth team to make more than half of their shots, and value more than any other team in the league considering the three pointers.
+*** \#Data
+How \#\#Where are the playing shooting from and how effective are they
+
+The graph shows the position of where the shots are being made and whether the shot was successful. It can be seen that there is definitely a significant amount of three-pointers attemps and the shots missed and made are approximately the same or more made, showing how skillful the players are.
+\#\#How effective are the shots
+
+``` r
 knitr::opts_knit$set(root.dir = '~/Desktop/Stats 133/workout01/data/')
 iguodala <- read.csv(file = "andre-iguodala.csv", sep = ",", stringsAsFactors = FALSE )
 green <- read.csv(file = "draymond-green.csv", sep = ",", stringsAsFactors = FALSE )
@@ -51,10 +45,12 @@ summary <- arrange(summary, percent_made)
 summary
 ```
 
-From the summary table, it shows that the percent of shot made is generally from 40-50%, which is a very good number.  
+From the summary table, it shows that the percent of shot made is generally from 40-50%, which is a very good number.
 
-##Breakdown 2-pointers and 3-pointers
-```{r }
+Breakdown 2-pointers and 3-pointers
+-----------------------------------
+
+``` r
 iguodala <- mutate(iguodala, shot_type = ifelse(iguodala$shot_type == "2PT Field Goal", "2", "3"))
 green <- mutate(green, shot_type = ifelse(green$shot_type == "2PT Field Goal", "2", "3"))
 durant <- mutate(durant, shot_type = ifelse(durant$shot_type == "2PT Field Goal", "2", "3"))
@@ -83,7 +79,7 @@ twopttable <- arrange(twopttable, percent_made)
 twopttable
 ```
 
-```{r }
+``` r
 igthree <- filter(iguodala, shot_made_flag == "y", shot_type == 3)
 grthree <- filter(green, shot_made_flag == "y" & shot_type == 3)
 duthree <- filter(durant, shot_made_flag == "y" & shot_type == 3)
@@ -105,22 +101,32 @@ threepttable <- data.frame(name = c("Andre Iguodala", "Draymond Green", "Kevin D
 threepttable <- arrange(threepttable, percent_made)
 threepttable
 ```
-Two pointers had extremely high percent made rate of up to 63 percent in the 2016 season (Iguodala). Three pointers have less percent made but nonetheless had 30-40% of success rate.  
 
-***  
-#Discussion  
-##Shooting  
-The shooting efficiency is proven by all the data presented. The total efficiency was for the five players were from 40-50%, which is extremely high. Breaking down at the two pointers and three pointers, it can be seen the two pointers have approximately 50-60% success rate and three pointers have 30-40% rate, which are both reasons for why the shooting effectiveness is high as both types of shots are scoring well. 
+Two pointers had extremely high percent made rate of up to 63 percent in the 2016 season (Iguodala). Three pointers have less percent made but nonetheless had 30-40% of success rate.
 
-##Individual players  
-Kaly Thompson stands out in that the percent of shots made for three pointers were 42%, the highest amongst all. Thompson also made the most three point shots, showing his excellent three pointer skills and that he emphasizes mid-range play style. For two pointers, Andre Iguodala scored the most effectively, with a percent made of 63%.  
+------------------------------------------------------------------------
 
-##Conclusion  
+Discussion
+==========
+
+Shooting
+--------
+
+The shooting efficiency is proven by all the data presented. The total efficiency was for the five players were from 40-50%, which is extremely high. Breaking down at the two pointers and three pointers, it can be seen the two pointers have approximately 50-60% success rate and three pointers have 30-40% rate, which are both reasons for why the shooting effectiveness is high as both types of shots are scoring well.
+
+Individual players
+------------------
+
+Kaly Thompson stands out in that the percent of shots made for three pointers were 42%, the highest amongst all. Thompson also made the most three point shots, showing his excellent three pointer skills and that he emphasizes mid-range play style. For two pointers, Andre Iguodala scored the most effectively, with a percent made of 63%.
+
+Conclusion
+----------
+
 All five players of the GSW has excellent shooting skills, shown by the various data presented in the report. The two and three pointer percent success rate indicates that players are well balanced in making all sorts of shots, allowing for the team to stay strong even at times where accidents or injury occur.
 
-***  
-#References
-[]https://en.wikipedia.org/wiki/Golden_State_Warriors
-[]https://bleacherreport.com/articles/2749739-5-wild-stats-defining-golden-state-warriors-season
-[]https://shottracker.com/articles/are-the-warriors-making-the-mid-range-relevant-again
+------------------------------------------------------------------------
 
+References
+==========
+
+\[\]<https://en.wikipedia.org/wiki/Golden_State_Warriors> \[\]<https://bleacherreport.com/articles/2749739-5-wild-stats-defining-golden-state-warriors-season> \[\]<https://shottracker.com/articles/are-the-warriors-making-the-mid-range-relevant-again>
